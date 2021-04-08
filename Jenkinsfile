@@ -14,6 +14,9 @@ pipeline {
     environment {
         COMMIT_HASH="${sh(script:'git rev-parse --short HEAD', returnStdout: true).trim()}"
     }
+    tools {
+      maven 'Maven 3.8.1'
+    }
     stages {
       stage('Test') {
         steps {
