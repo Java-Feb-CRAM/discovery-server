@@ -16,6 +16,7 @@ pipeline {
     }
     tools {
       maven 'Maven 3.8.1'
+      jdk 'Java 15'
     }
     stages {
       stage('Test') {
