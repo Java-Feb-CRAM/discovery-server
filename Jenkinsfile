@@ -39,7 +39,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building docker image..'
-                sh "$AWS_LOGIN"                
+                sh "aws_ecr"                
                 sh "docker build --tag utopia-discovery-server:$COMMIT_HASH ."
                 sh "docker tag utopia-discovery-server:$COMMIT_HASH 038778514259.dkr.ecr.us-east-1.amazonaws.com/utopia-discovery-server:$COMMIT_HASH"
                 echo 'Pushing docker image to ECR..'
