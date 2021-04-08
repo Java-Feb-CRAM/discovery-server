@@ -40,10 +40,10 @@ pipeline {
             steps {
                 echo 'Building docker image..'
                 sh "aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 038778514259.dkr.ecr.us-east-1.amazonaws.com"                
-                sh "sudo docker build --tag utopia-discovery-server:$COMMIT_HASH ."
-                sh "sudo docker tag utopia-discovery-server:$COMMIT_HASH 038778514259.dkr.ecr.us-east-1.amazonaws.com/utopia-discovery-server:$COMMIT_HASH"
+                sh "docker build --tag utopia-discovery-server:$COMMIT_HASH ."
+                sh "docker tag utopia-discovery-server:$COMMIT_HASH 038778514259.dkr.ecr.us-east-1.amazonaws.com/utopia-discovery-server:$COMMIT_HASH"
                 echo 'Pushing docker image to ECR..'
-                sh "sudo docker push 038778514259.dkr.ecr.us-east-1.amazonaws.com/utopia-discovery-server:$COMMIT_HASH"
+                sh "docker push 038778514259.dkr.ecr.us-east-1.amazonaws.com/utopia-discovery-server:$COMMIT_HASH"
             }
         }
         // stage('Deploy') {
