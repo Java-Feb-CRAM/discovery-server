@@ -9,13 +9,13 @@ import org.springframework.web.bind.annotation.RestController;
  * Apr 11 2021
  */
 @RestController
-public class TestController {
+public class AbcController {
 
   @Value("${test.data}")
   private String testData;
 
-  @GetMapping("/test")
-  public String test() {
+  @GetMapping("/abc")
+  public String abc() {
     return testData;
   }
 }
