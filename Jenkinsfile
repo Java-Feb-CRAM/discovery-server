@@ -53,7 +53,7 @@ pipeline {
                 sh "rm ECS.yml"
                 sh "wget https://raw.githubusercontent.com/Java-Feb-CRAM/cloud-formation/main/ECS.yml"
                 echo 'Deploying cloudformation..'
-                sh "aws cloudformation deploy --stack-name UtopiaDiscoveryMS --template-file ./ECS.yml --parameter-overrides ApplicationName=DiscoveryMS ECRepositoryUri=038778514259.dkr.ecr.us-east-1.amazonaws.com/utopia-discovery-server:$COMMIT_HASH ExecutionRoleArn=arn:aws:iam::038778514259:role/ecsTaskExecutionRole TargetGroupArn=arn:aws:elasticloadbalancing:us-east-1:038778514259:targetgroup/DiscoveryTG/418b6191e29abad6 --role-arn arn:aws:iam::038778514259:role/CloudFormationECS --region us-east-1"
+                sh "aws cloudformation deploy --stack-name UtopiaDiscoveryMS --template-file ./ECS.yml --parameter-overrides ApplicationName=DiscoveryMS ECRepositoryUri=038778514259.dkr.ecr.us-east-1.amazonaws.com/utopia-discovery-server:$COMMIT_HASH ExecutionRoleArn=arn:aws:iam::038778514259:role/ecsTaskExecutionRole TargetGroupArn=arn:aws:elasticloadbalancing:us-east-1:038778514259:targetgroup/DiscoveryTG/418b6191e29abad6 --role-arn arn:aws:iam::038778514259:role/CloudFormationECS --capabilities CAPABILITY_IAM CAPABILITY_NAMED_IAM --region us-east-1"
             }
         }
         stage('Cleanup') {
