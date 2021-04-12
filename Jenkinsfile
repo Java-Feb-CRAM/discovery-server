@@ -32,7 +32,7 @@ pipeline {
             steps {
                 echo 'Packging jar file..'
                 script {
-                    sh "mvn clean package"
+                    sh "mvn clean package -Dmaven.test.skip.exec"
                 }
             }
         }
