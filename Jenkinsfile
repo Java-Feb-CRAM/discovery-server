@@ -60,9 +60,6 @@ pipeline {
       }
     }
     stage('Build') {
-      when {
-        branch 'main'
-      }
       steps {
         echo 'Building docker image..'
         sh "aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 038778514259.dkr.ecr.us-east-1.amazonaws.com"
@@ -78,9 +75,6 @@ pipeline {
       }
     }
     stage('Deploy') {
-      when {
-        branch 'main'
-      }
       steps {
         echo 'Fetching cloud cloudformation template..'
         sh "touch ECS.yml"
