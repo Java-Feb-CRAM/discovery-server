@@ -1,10 +1,10 @@
-#Read Me
+# Read Me
 
-##Requirements
+## Requirements
 * Java 15
 
-##Building
+## Building
 To build this project clone this repository and run `mvn clean install`
 
-##Running
+## Running
 By default this server will bind to port *8761*
